@@ -1,6 +1,7 @@
 # workdelivery
 
-A new Flutter project.
+Projeto para a matéria de Engenharia de Software II na Universidade Federal do Piauí - CSHNB.
+Trate-se de um aplicativo para contratação de serviços sob demanda. Pessoas podem se cadastar com contas de trabalhador e receber propostas de serviços de usuários com conta normal. Todas as especificações do serviço como horário, local, data, preço e tempo serão acertadas entre as partes.
 
 ## Getting Started
 
