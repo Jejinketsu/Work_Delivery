@@ -55,7 +55,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   margin: EdgeInsets.only(top: 10),
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    "Sua resposta foi enviada para Toinho dos Canos",
+                                    "Sua proposta foi enviada para Toinho dos Canos",
 
                                   ),
 
@@ -122,7 +122,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                 Container(
                                   margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                                   width: 150,
-                                  height: 45,
+                                  height: 30,
                                   child: RaisedButton(
                                     textColor: Color(0xffa4002c),
                                     onPressed: null,
@@ -142,7 +142,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                         ),
                                       ),
                                     ),
-                                    padding: EdgeInsets.all(15),
+                                    padding: EdgeInsets.all(0),
 
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(35.0),
