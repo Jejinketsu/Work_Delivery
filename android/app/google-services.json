@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "820464914185",
+    "firebase_url": "https://workdelivery-b9ce3.firebaseio.com",
+    "project_id": "workdelivery-b9ce3",
+    "storage_bucket": "workdelivery-b9ce3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820464914185:android:8f3dbcbab89baf1136cdd8",
+        "android_client_info": {
+          "package_name": "com.example.workdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820464914185-fet91kve06d9a2mkgp9bdliqumjaf1fp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPprP9SEO-SzxJztvDDHjZ5pQcdr7ATTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820464914185-fet91kve06d9a2mkgp9bdliqumjaf1fp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "820464914185-g94il2u5a598deinht1rdsa8n796a853.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sacadaGames.workDelivery"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
