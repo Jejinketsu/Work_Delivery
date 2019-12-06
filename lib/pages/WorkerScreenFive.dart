@@ -291,7 +291,7 @@ class _WorkerScreenFiveState extends State<WorkerScreenFive> {
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
                                   child: Text(
-                                    "19:30",
+                                    "13:00",
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),
@@ -318,7 +318,7 @@ class _WorkerScreenFiveState extends State<WorkerScreenFive> {
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
                                   child: Text(
-                                    "19:50",
+                                    "14:00",
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),

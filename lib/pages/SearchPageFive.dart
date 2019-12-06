@@ -169,7 +169,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
                                   child: Text(
-                                    "19:50",
+                                    "13:50",
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),
