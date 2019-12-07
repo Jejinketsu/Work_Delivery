@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:workdelivery/pages/cad-page-one.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:workdelivery/pages/authenticate/cad-page-one.dart';
+import 'package:workdelivery/services/auth.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,10 +11,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final AuthService _auth = AuthService();
 
   var _formKey = GlobalKey<FormState>();
+
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: TextFormField(
                           obscureText: false,
                           keyboardType: TextInputType.emailAddress,
+                          onChanged: (val) {
+                            setState(() => email = val);
+                          },
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -56,7 +61,10 @@ class _LoginPageState extends State<LoginPage> {
                         width: 600,
                         child: TextFormField(
                           obscureText: true,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.visiblePassword,
+                          onChanged: (val) {
+                            setState(() => password = val);
+                          },
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -113,33 +121,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Padding _loginAlternativeButton(Color color, String text, double size){
-    return Padding(
-      padding: EdgeInsets.only(right: 5.0, left: 5.0),
-      child: FloatingActionButton(
-        heroTag: "btn_$text",
-        onPressed: (){},
-        backgroundColor: color,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: size,
-            color: Color(0xff0d429b),
-          ),
-        ),
-      ),
-    );
-  }
-
   Container _loginButton(){
     return Container(
       margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       width: 600,
       child: RaisedButton(
         textColor: Color(0xffa4002c),
-        onPressed: () {
+        onPressed: () async {
           if(_formKey.currentState.validate()){
-            print("loged");
+            dynamic result = await _auth.singInEmail(email, password);
           }
         }, //aqui nos coloca a função do botão
         color: Colors.white,
@@ -153,6 +143,24 @@ class _LoginPageState extends State<LoginPage> {
 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(35.0),
+        ),
+      ),
+    );
+  }
+
+  Padding _loginAlternativeButton(Color color, String text, double size){
+    return Padding(
+      padding: EdgeInsets.only(right: 5.0, left: 5.0),
+      child: FloatingActionButton(
+        heroTag: "btn_$text",
+        onPressed: (){},
+        backgroundColor: color,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: size,
+            color: Color(0xff0d429b),
+          ),
         ),
       ),
     );

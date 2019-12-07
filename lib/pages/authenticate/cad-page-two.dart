@@ -1,14 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:workdelivery/pages/cad-page-two.dart';
+import 'package:workdelivery/pages/authenticate/cad-page-three.dart';
 
 
-class CadPageOne extends StatefulWidget{
-     @override
-    _CadPageOneState createState() => _CadPageOneState();
+
+class CadPageTwo extends StatefulWidget{
+  @override
+  _CadPageTwoState createState() => _CadPageTwoState();
 }
 
-class _CadPageOneState extends State<CadPageOne>{
+class _CadPageTwoState extends State<CadPageTwo>{
+  bool _value1 = false;
+  bool _value2 = false;
+  bool _value3 = false;
+  bool _value4 = false;
 
   var _formKey = GlobalKey<FormState>();
 
@@ -22,11 +28,12 @@ class _CadPageOneState extends State<CadPageOne>{
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
+
                   Padding(
-                   padding: const EdgeInsets.only(right: 50.0, left: 50.0, bottom: 10.0),
+                    padding: const EdgeInsets.only(right: 50.0, left: 50.0, bottom: 10.0),
                     child: Image.asset('images/Logo.png', fit: BoxFit.contain),
                   ),
-
+                  
                   Padding(
                     padding: const EdgeInsets.only(top: 10, bottom: 20),
                     child: Container(
@@ -60,7 +67,7 @@ class _CadPageOneState extends State<CadPageOne>{
                             style: TextStyle(
                               color: Colors.white,
                             ),
-                            decoration: _textInputDecoration("Seu Nome"),
+                            decoration: _textInputDecoration("Apelido"),
                             validator: (String value) {
                               if(value.isEmpty) return "Campo em branco";
                             },
@@ -77,7 +84,7 @@ class _CadPageOneState extends State<CadPageOne>{
                             style: TextStyle(
                               color: Colors.white,
                             ),
-                            decoration: _textInputDecoration("Seu email"),
+                            decoration: _textInputDecoration("Telefone"),
                             validator: (String value) {
                               if(value.isEmpty) return "Campo em branco";
                             },
@@ -89,12 +96,12 @@ class _CadPageOneState extends State<CadPageOne>{
                           width: 300,
                           height: 45,
                           child: TextFormField(
-                            obscureText: true,
+                            obscureText: false,
                             keyboardType: TextInputType.emailAddress,
                             style: TextStyle(
                               color: Colors.white,
                             ),
-                            decoration: _textInputDecoration("Sua Senha"),
+                            decoration: _textInputDecoration("Data de Nascimento"),
                             validator: (String value) {
                               if(value.isEmpty) return "Campo em branco";
                             },
@@ -102,28 +109,19 @@ class _CadPageOneState extends State<CadPageOne>{
                         ),
 
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                          width: 300,
-                          height: 45,
-                          child: TextFormField(
-                            obscureText: true,
-                            keyboardType: TextInputType.emailAddress,
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                            decoration: _textInputDecoration("Confirme Sua Senha"),
-                            validator: (String value) {
-                              if(value.isEmpty) return "Campo em branco";
-                            },
+                          margin: EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              _cadCheckButton1("Masculino","Feminino"),
+                              _cadCheckButton2("Cliente ","Freelancer"),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-
-                  Padding(
-                    padding: EdgeInsets.only(top: 5.0),
-                  ),
+                  
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: Row(
@@ -132,7 +130,7 @@ class _CadPageOneState extends State<CadPageOne>{
                         Padding(
                           padding: EdgeInsets.only(right: 15.0, left: 20.0),
                           child: FloatingActionButton(
-                            heroTag: 'btn_back_cad1',
+                            heroTag: 'btn_back_cad2',
                             onPressed: (){
                               Navigator.pop(context);
                             },
@@ -140,14 +138,13 @@ class _CadPageOneState extends State<CadPageOne>{
                             child: Icon(Icons.arrow_back,color: Colors.red[700]),
                           ),
                         ),
+
                         Padding(
                           padding: EdgeInsets.only(right: 15.0, left: 20.0),
                           child: FloatingActionButton(
-                            heroTag: 'btn_foward_cad1',
+                            heroTag: 'btn_foward_cad2',
                             onPressed: (){
-                              if(_formKey.currentState.validate()){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) { return CadPageTwo();}));
-                              }
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => CadPageThree()));
                             },
                             backgroundColor: Colors.white,
                             child: Icon(Icons.arrow_forward,color: Colors.red[700]),
@@ -159,6 +156,88 @@ class _CadPageOneState extends State<CadPageOne>{
                 ],
               ),
             )
+        ),
+      ),
+    );
+  }
+
+  Container _cadCheckButton1(String text1,String text2){
+
+    //we omitted the brackets '{}' and are using fat arrow '=>' instead, this is dart syntax
+    return Container(
+      alignment: Alignment.topRight,
+      child: Transform.scale(
+        scale: 1.2,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+            Checkbox(
+              activeColor: Color(0xffa4002c),
+              checkColor: Colors.white,
+              onChanged: (bool value) {
+                _value1 = changeState(_value1);
+              },
+              value: _value1,
+            ),
+
+            GestureDetector(
+              child: Text(text1,style: TextStyle(color: Colors.white,fontSize: 14),),
+            ),
+
+            Checkbox(
+              activeColor: Color(0xffa4002c),
+              checkColor: Colors.white,
+              onChanged: (bool value) {
+                _value2 = changeState(_value2);
+              },
+              value: _value2,
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+
+            GestureDetector(
+              child: Text(text2,style: TextStyle(color: Colors.white,fontSize: 14),),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container _cadCheckButton2(String text1,String text2){
+    return Container(
+      child: Transform.scale(
+        scale: 1.2,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+              Checkbox(
+                activeColor: Color(0xffa4002c),
+                checkColor: Colors.white,
+                onChanged: (bool value) {
+                  _value3 = changeState(_value3);
+                },
+                value: _value3,
+              ),
+
+              GestureDetector(
+                child: Text(text1,style: TextStyle(color: Colors.white,fontSize: 14,),),
+              ),
+
+              Checkbox(
+                  activeColor: Color(0xffa4002c),
+                  checkColor: Colors.white,
+                  onChanged: (bool value) {
+                    _value4 = changeState(_value4);
+                  },
+                  value: _value4,
+              ),
+
+              GestureDetector(
+                child: Text(text2,style: TextStyle(color: Colors.white,fontSize: 14),),
+              ),
+           ],
         ),
       ),
     );
@@ -187,5 +266,12 @@ class _CadPageOneState extends State<CadPageOne>{
         color: Colors.white,
       ),
     );
+  }
+
+  bool changeState(bool value){
+    setState(() {
+      value = !value;
+    });
+    return value;
   }
 }

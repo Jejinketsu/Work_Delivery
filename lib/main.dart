@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:workdelivery/pages/login-page.dart';
+import 'package:provider/provider.dart';
+import 'package:workdelivery/pages/wrapper.dart';
+import 'package:workdelivery/services/auth.dart';
+import 'package:workdelivery/models/user.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Work Delivery',
-      theme: ThemeData(
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Work Delivery',
+        theme: ThemeData(
+        ),
+        home: Wrapper(),
       ),
-      home: LoginPage()
     );
   }
 }
