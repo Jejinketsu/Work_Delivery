@@ -67,7 +67,7 @@ class _WorkerScreenThreeState extends State<WorkerScreenThree> {
 
                             Container(
                               margin: EdgeInsets.only(left: 20),
-                              child: Text("Jobs em Andamento",
+                              child: Text("Jobs",
                                 style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
                             )
 
@@ -87,7 +87,37 @@ class _WorkerScreenThreeState extends State<WorkerScreenThree> {
                         Row(
                           children: <Widget>[
                             Container(
-                              width: 30,
+                              margin: EdgeInsets.only(left: 50),
+                              width: 20,
+
+                              child: FloatingActionButton(
+                                backgroundColor: Colors.white,
+
+                              ),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(left: 20),
+                              child: Text("Jobs em andamento",
+                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 17,fontStyle: FontStyle.italic),),
+                            )
+
+                          ],
+                        )
+
+                      ],
+                    ),
+                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
+                  ),
+                  ListTile(
+
+                    title:Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 50),
+                              width: 20,
 
                               child: FloatingActionButton(
                                 backgroundColor: Colors.white,
@@ -98,7 +128,7 @@ class _WorkerScreenThreeState extends State<WorkerScreenThree> {
                             Container(
                               margin: EdgeInsets.only(left: 20),
                               child: Text("Jobs Concluídos",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
+                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 17,fontStyle: FontStyle.italic),),
                             )
 
                           ],
