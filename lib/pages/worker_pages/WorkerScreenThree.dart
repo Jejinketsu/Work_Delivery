@@ -25,7 +25,155 @@ class _WorkerScreenThreeState extends State<WorkerScreenThree> {
             title: Text("Jobs em Andamento",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
           ),
+          drawer: Drawer(
+            child:Container(
+              color:Color(0xffa4002c) ,
+              child: ListView(
+                children: <Widget>[
+                  DrawerHeader(
+                      decoration: BoxDecoration(
 
+                        color:  Color(0xffa4002c),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+
+                            height: 100,
+                            alignment: Alignment.bottomLeft,
+                            child: Text("Bem Vindo, Toinho",
+                              style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 27),),
+                          ),
+
+
+                        ],
+                      )
+                  ),
+
+                  ListTile(
+
+                    title:Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 30,
+
+                              child: FloatingActionButton(
+                                backgroundColor: Colors.white,
+
+                              ),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(left: 20),
+                              child: Text("Jobs em Andamento",
+                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
+                            )
+
+                          ],
+                        )
+
+                      ],
+                    ),
+                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
+                  ),
+
+
+                  ListTile(
+
+                    title:Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 30,
+
+                              child: FloatingActionButton(
+                                backgroundColor: Colors.white,
+
+                              ),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(left: 20),
+                              child: Text("Jobs Concluídos",
+                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
+                            )
+
+                          ],
+                        )
+
+                      ],
+                    ),
+                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
+                  ),
+
+                  ListTile(
+
+                    title:Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 30,
+
+                              child: FloatingActionButton(
+                                backgroundColor: Colors.white,
+
+                              ),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(left: 20),
+                              child: Text("Propostas",
+                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
+                            )
+
+                          ],
+                        )
+
+                      ],
+                    ),
+                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
+                  ),
+                  ListTile(
+
+                    title:Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 30,
+
+                              child: FloatingActionButton(
+                                backgroundColor: Colors.white,
+
+                              ),
+                            ),
+
+                            Container(
+                              margin: EdgeInsets.only(left: 20),
+                              child: Text("Configurações",
+                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
+                            )
+
+                          ],
+                        )
+
+                      ],
+                    ),
+                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
+                  ),
+
+
+
+                ],
+              ),
+            ),
+
+
+          ),
           backgroundColor: Colors.white,
           body: Padding(
 
@@ -214,21 +362,7 @@ class _WorkerScreenThreeState extends State<WorkerScreenThree> {
 
           ),
         ),
-        Container(
 
-
-        child:Positioned(
-            top: kToolbarHeight,
-            bottom: 900,
-            left: 0,
-
-            child: FloatingActionButton(
-
-              child: Icon(Icons.dehaze, size: 30,),
-              backgroundColor: Color.fromRGBO(80, 0, 0, 1),
-            ),
-        ),
-        ),
 
       ],
     );
