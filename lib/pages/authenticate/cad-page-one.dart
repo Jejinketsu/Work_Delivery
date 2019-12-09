@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:workdelivery/pages/authenticate/cad-page-two.dart';
-import 'package:workdelivery/services/auth.dart';
+import 'package:workdelivery/models/userDatabase.dart';
 
 
 class CadPageOne extends StatefulWidget{
@@ -13,10 +13,7 @@ class _CadPageOneState extends State<CadPageOne>{
 
   var _formKey = GlobalKey<FormState>();
 
-  final AuthService _auth = AuthService();
-
-  String email = '';
-  String password = '';
+  final UserDatabase userDatabase = UserDatabase();
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +60,9 @@ class _CadPageOneState extends State<CadPageOne>{
                           child: TextFormField(
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
+                            onChanged: (val) {
+                              setState(() => userDatabase.name = val);
+                            },
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -81,7 +81,7 @@ class _CadPageOneState extends State<CadPageOne>{
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
                             onChanged: (val) {
-                              setState(() => email = val);
+                              setState(() => userDatabase.email = val);
                             },
                             style: TextStyle(
                               color: Colors.white,
@@ -101,7 +101,7 @@ class _CadPageOneState extends State<CadPageOne>{
                             obscureText: true,
                             keyboardType: TextInputType.emailAddress,
                             onChanged: (val) {
-                              setState(() => password = val);
+                              setState(() => userDatabase.password = val);
                             },
                             style: TextStyle(
                               color: Colors.white,
@@ -126,6 +126,7 @@ class _CadPageOneState extends State<CadPageOne>{
                             decoration: _textInputDecoration("Confirme Sua Senha"),
                             validator: (String value) {
                               if(value.isEmpty) return "Campo em branco";
+                              else if(value != userDatabase.password) return "Senha incorreta";
                             },
                           ),
                         ),
@@ -158,8 +159,9 @@ class _CadPageOneState extends State<CadPageOne>{
                             heroTag: 'btn_foward_cad1',
                             onPressed: () async {
                               if(_formKey.currentState.validate()) {
-                                dynamic result = await _auth.registerUserWithEmailAndPassword(email, password);
-                                //Navigator.push(context, MaterialPageRoute(builder: (context) { return CadPageTwo();}));
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => CadPageTwo(userDatabase: userDatabase),
+                                ));
                               }
                             },
                             backgroundColor: Colors.white,

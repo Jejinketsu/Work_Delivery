@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:workdelivery/models/userDatabase.dart';
+import 'package:workdelivery/services/auth.dart';
+import 'package:workdelivery/shared/loading.dart';
+import 'package:workdelivery/pages/authenticate/work-cad-page-one.dart';
 
 
 class CadPageThree extends StatefulWidget{
+
+  final UserDatabase userDatabase;
+
+  const CadPageThree({Key key, @required this.userDatabase}) : super(key: key);
+
   @override
-  _CadPageThreeState createState() => _CadPageThreeState();
+  _CadPageThreeState createState() => _CadPageThreeState(userDatabase);
 }
 
 class _CadPageThreeState extends State<CadPageThree>{
 
+  UserDatabase userDatabase;
+  _CadPageThreeState(this.userDatabase);
+
+  final AuthService _auth = AuthService();
+
   var _formKey = GlobalKey<FormState>();
+
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Color(0xffa4002c),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -56,6 +72,9 @@ class _CadPageThreeState extends State<CadPageThree>{
                           child: TextFormField(
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
+                            onChanged: (val) {
+                              setState(() => userDatabase.city = val);
+                            },
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -73,6 +92,9 @@ class _CadPageThreeState extends State<CadPageThree>{
                           child: TextFormField(
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
+                            onChanged: (val) {
+                              setState(() => userDatabase.neighborhood = val);
+                            },
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -90,6 +112,9 @@ class _CadPageThreeState extends State<CadPageThree>{
                           child: TextFormField(
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
+                            onChanged: (val) {
+                              setState(() => userDatabase.street = val);
+                            },
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -107,6 +132,9 @@ class _CadPageThreeState extends State<CadPageThree>{
                           child: TextFormField(
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
+                            onChanged: (val) {
+                              setState(() => userDatabase.number = int.parse(val));
+                            },
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -140,9 +168,20 @@ class _CadPageThreeState extends State<CadPageThree>{
                           padding: EdgeInsets.only(right: 15.0, left: 20.0),
                           child: FloatingActionButton(
                             heroTag: 'btn_foward_cad3',
-                            onPressed: (){
+                            onPressed: () async {
                               if(_formKey.currentState.validate()){
-                                print("cadastrado");
+                                if(userDatabase.worker == false){
+                                  setState(() => loading = true );
+                                  dynamic result = await _auth.registerUserWithEmailAndPassword(userDatabase.email, userDatabase.password, userDatabase);
+                                  if(result == null) {
+                                    setState(() => loading = false);
+                                  }
+                                } else {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => WorkCadPageOne(userDatabase: userDatabase)
+                                  ));
+                                }
+                                userDatabase.toStringUDB();
                               };
                             },
                             backgroundColor: Colors.white,

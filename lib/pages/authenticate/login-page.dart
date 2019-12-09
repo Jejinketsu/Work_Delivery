@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:workdelivery/pages/authenticate/cad-page-one.dart';
 import 'package:workdelivery/services/auth.dart';
+import 'package:workdelivery/shared/loading.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -12,15 +13,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   final AuthService _auth = AuthService();
-
   var _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   String email = '';
   String password = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Color(0xffa4002c),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -128,8 +129,14 @@ class _LoginPageState extends State<LoginPage> {
       child: RaisedButton(
         textColor: Color(0xffa4002c),
         onPressed: () async {
+          setState(() => loading = true );
           if(_formKey.currentState.validate()){
             dynamic result = await _auth.singInEmail(email, password);
+            if(result = null){
+              setState(() {
+                loading = false;
+              });
+            }
           }
         }, //aqui nos coloca a função do botão
         color: Colors.white,

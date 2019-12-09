@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:workdelivery/services/auth.dart';
+import 'package:workdelivery/models/userDatabase.dart';
 
 
 class WorkCadPageTwo extends StatefulWidget{
+  
+  final UserDatabase userDatabase;
+
+  const WorkCadPageTwo({Key key, @required this.userDatabase}) : super(key: key);
+  
   @override
-  _WorkCadPageTwoState createState() => _WorkCadPageTwoState();
+  _WorkCadPageTwoState createState() => _WorkCadPageTwoState(userDatabase);
 }
 
 class _WorkCadPageTwoState extends State<WorkCadPageTwo>{
+
+  UserDatabase userDatabase;
+  _WorkCadPageTwoState(this.userDatabase);
 
   var _formKey = GlobalKey<FormState>();
 

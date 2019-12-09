@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:workdelivery/models/userDatabase.dart';
+import 'package:workdelivery/pages/authenticate/work-cad-page-two.dart';
 
 
 class WorkCadPageOne extends StatefulWidget{
+
+  final UserDatabase userDatabase;
+
+  const WorkCadPageOne({Key key, @required this.userDatabase}) : super(key: key);
+
   @override
-  _WorkdCadPageOneState createState() => _WorkdCadPageOneState();
+  _WorkdCadPageOneState createState() => _WorkdCadPageOneState(userDatabase);
 }
 
 class _WorkdCadPageOneState extends State<WorkCadPageOne>{
+
+  UserDatabase userDatabase;
+  _WorkdCadPageOneState(this.userDatabase);
 
   var _formKey = GlobalKey<FormState>();
 
@@ -56,7 +66,9 @@ class _WorkdCadPageOneState extends State<WorkCadPageOne>{
                           child: TextFormField(
                             obscureText: false,
                             keyboardType: TextInputType.emailAddress,
-
+                            onChanged: (val) {
+                              setState(() => userDatabase.workType = val);
+                            },  
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -67,12 +79,6 @@ class _WorkdCadPageOneState extends State<WorkCadPageOne>{
                             },
                           ),
                         ),
-
-
-
-
-
-
                       ],
                     ),
                   ),
@@ -99,7 +105,9 @@ class _WorkdCadPageOneState extends State<WorkCadPageOne>{
                             heroTag: 'btn_foward_cad3',
                             onPressed: (){
                               if(_formKey.currentState.validate()){
-                                print("cadastrado");
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => WorkCadPageTwo(userDatabase: userDatabase)
+                                  ));
                               };
                             },
                             backgroundColor: Colors.white,
