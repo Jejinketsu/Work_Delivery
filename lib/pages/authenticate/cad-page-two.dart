@@ -25,7 +25,6 @@ class _CadPageTwoState extends State<CadPageTwo>{
   bool _value3 = true;
   bool _value4 = false;
 
-
   var _formKey = GlobalKey<FormState>();
 
   DateTime _date = new DateTime.now();
@@ -45,6 +44,11 @@ class _CadPageTwoState extends State<CadPageTwo>{
 
   @override
   Widget build(BuildContext context) {
+
+    userDatabase.gender = "Masculino";
+    userDatabase.worker = _value4;
+    userDatabase.workType = "Cliente";
+
     return Scaffold(
       backgroundColor: Color(0xffa4002c),
       body: Padding(

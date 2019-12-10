@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
           setState(() => loading = true );
           if(_formKey.currentState.validate()){
             dynamic result = await _auth.singInEmail(email, password);
-            if(result = null){
+            if(result == null){
               setState(() {
                 loading = false;
               });

@@ -10,10 +10,10 @@ class UserDatabase {
   String phone;
   DateTime dateOfBirth; 
   String gender; 
-  bool worker; 
+  bool worker;
   bool hide; 
-  String workType = 'Cliente'; 
-  double rank = 0;
+  String workType; 
+  double rank;
 
   UserDatabase({
     this.email, this.password,

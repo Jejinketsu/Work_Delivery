@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:workdelivery/services/auth.dart';
 import 'package:workdelivery/models/userDatabase.dart';
+import 'package:workdelivery/shared/loading.dart';
+import 'package:workdelivery/pages/authenticate/login-page.dart';
 
 
 class WorkCadPageTwo extends StatefulWidget{
@@ -21,9 +23,13 @@ class _WorkCadPageTwoState extends State<WorkCadPageTwo>{
 
   var _formKey = GlobalKey<FormState>();
 
+  final AuthService _auth = AuthService();
+
+  bool loading = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Color(0xffa4002c),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -159,10 +165,17 @@ class _WorkCadPageTwoState extends State<WorkCadPageTwo>{
                           padding: EdgeInsets.only(right: 15.0, left: 20.0),
                           child: FloatingActionButton(
                             heroTag: 'btn_foward_cad3',
-                            onPressed: (){
+                            onPressed: () async {
                               if(_formKey.currentState.validate()){
-                                print("cadastrado");
-                              };
+                                setState(() => loading = true);
+                                dynamic result = await _auth.registerUserWithEmailAndPassword(userDatabase.email, userDatabase.password, userDatabase);
+                                if(result == null) {
+                                  setState(() => loading = false);
+                                }
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => LoginPage()
+                                ));
+                              }
                             },
                             backgroundColor: Colors.white,
                             child: Icon(Icons.arrow_forward, color: Colors.red[700]),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:workdelivery/pages/authenticate/work-cad-page-two.dart';
+import 'package:workdelivery/pages/worker_pages/WorkerPageTwo.dart';
+import 'package:workdelivery/shared/SideMenuWorker.dart';
 
 
-class WorkerScreenTwo extends StatefulWidget{
+class WorkerPageOne extends StatefulWidget{
   @override
-  _WorkerScreenTwoState createState() => _WorkerScreenTwoState();
+  _WorkerPageOneState createState() => _WorkerPageOneState();
 }
 
-class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
+class _WorkerPageOneState extends State<WorkerPageOne> {
 
   var _formKey = GlobalKey<FormState>();
 
@@ -26,194 +29,12 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
           ),
 
-          drawer: Drawer(
-            child:Container(
-              color:Color(0xffa4002c) ,
-              child: ListView(
-                children: <Widget>[
-                  DrawerHeader(
-                      decoration: BoxDecoration(
-
-                        color:  Color(0xffa4002c),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-
-                            height: 100,
-                            alignment: Alignment.bottomLeft,
-                            child: Text("Bem Vindo, Toinho",
-                              style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 27),),
-                          ),
-
-
-                        ],
-                      )
-                  ),
-
-                    ListTile(
-
-                      title:Column(
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 30,
-
-                                child: FloatingActionButton(
-                                  backgroundColor: Colors.white,
-
-                                ),
-                              ),
-
-                              Container(
-                                margin: EdgeInsets.only(left: 20),
-                                child: Text("Jobs",
-                                  style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                              )
-
-                            ],
-                          )
-
-                        ],
-                      ),
-                      //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                    ),
-
-
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(left: 50),
-                              width: 20,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Jobs em andamento",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 17,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(left: 50),
-                              width: 20,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Jobs Concluídos",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 17,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Propostas",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Configurações",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-
-
-
-                ],
-              ),
-          ),
-
-
-          ),
+          drawer: SideMunuWorker(),
           backgroundColor: Colors.white,
           body: Padding(
-
             padding: const EdgeInsets.all(0.0),
-
-
             child: SingleChildScrollView(
               child: Container(
-
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -226,7 +47,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                           Container(
                             alignment: Alignment.center,
                             margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                            width: 450,
+                            width: 325,
                             height: 45,
 
                             child: TextFormField(
@@ -277,7 +98,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
 
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top:25.0,left: 40,right: 40),
+                      padding: const EdgeInsets.only(top:25.0,left: 5,right: 5),
                       child: Container(
                           margin: EdgeInsets.only(top:0),
                           child: Column(
@@ -293,7 +114,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                       width: 40,
                                       margin: EdgeInsets.only(left:20),
                                       child: FloatingActionButton(
-
+                                        heroTag: "person1",
                                         backgroundColor: Color(0xffa4002c),
                                         child: Container(
 
@@ -302,46 +123,33 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                         ),
                                       ),
                                     ),
-
                                     Container(
-                                      margin: EdgeInsets.only(left:50),
+                                      margin: EdgeInsets.only(left:20),
                                       child: Text(
                                         "Whinderson Nunes",
                                         style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),
                                       ),
-
                                     ),
                                     Container(
                                       width: 40,
-                                      margin: EdgeInsets.only(left:55),
+                                      margin: EdgeInsets.only(left:35),
                                       child: FlatButton(
-
                                         color: Color.fromRGBO(237, 233, 238, 1),
                                         child: Container(
-
                                           child: Icon(Icons.arrow_forward,
                                             color: Color(0xffa4002c), size: 35,),
                                         ),
+                                        onPressed: () => Navigator.push(
+                                          context, 
+                                          MaterialPageRoute( 
+                                            builder: (context) => WorkerPageTwo(),
+                                          ),
+                                        ),
                                       ),
                                     ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                   ],
                                 ),
                               ),
-
 
                               Container(
                                 width: 600,
@@ -354,7 +162,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                       width: 40,
                                       margin: EdgeInsets.only(left:20),
                                       child: FloatingActionButton(
-
+                                        heroTag: "person2",
                                         backgroundColor: Color(0xffa4002c),
                                         child: Container(
 
@@ -365,7 +173,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                     ),
 
                                     Container(
-                                      margin: EdgeInsets.only(left:50),
+                                      margin: EdgeInsets.only(left:20),
                                       child: Text(
                                         "Francisco Guilherme",
                                         style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),
@@ -374,7 +182,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                     ),
                                     Container(
                                       width: 40,
-                                      margin: EdgeInsets.only(left:40),
+                                      margin: EdgeInsets.only(left:20),
                                       child: FlatButton(
 
                                         color: Color.fromRGBO(237, 233, 238, 1),
@@ -403,7 +211,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                       width: 40,
                                       margin: EdgeInsets.only(left:20),
                                       child: FloatingActionButton(
-
+                                        heroTag: "person3",
                                         backgroundColor: Color(0xffa4002c),
                                         child: Container(
 
@@ -414,9 +222,60 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                     ),
 
                                     Container(
-                                      margin: EdgeInsets.only(left:50),
+                                      margin: EdgeInsets.only(left:20),
                                       child: Text(
                                         "João Marcos",
+                                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),
+                                      ),
+
+                                    ),
+                                    Container(
+                                      width: 40,
+                                      margin: EdgeInsets.only(left:90),
+                                      child: FlatButton(
+
+                                        color: Color.fromRGBO(237, 233, 238, 1),
+                                        child: Container(
+
+                                          child: Icon(Icons.arrow_forward,
+                                            color: Color(0xffa4002c), size: 35,),
+                                        ),
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+
+                              ),
+
+
+
+
+                              Container(
+                                width: 600,
+                                height: 70,
+                                margin: EdgeInsets.only(top:15),
+                                color: Color.fromRGBO(237, 233, 238, 1),
+                                child: Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 40,
+                                      margin: EdgeInsets.only(left:20),
+                                      child: FloatingActionButton(
+                                        heroTag: "person4",
+                                        backgroundColor: Color(0xffa4002c),
+                                        child: Container(
+
+                                          child: Icon(Icons.person_outline,
+                                            color: Colors.white, size: 35,),
+                                        ),
+                                      ),
+                                    ),
+
+                                    Container(
+                                      margin: EdgeInsets.only(left:20),
+                                      child: Text(
+                                        "Léo Nunes",
                                         style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),
                                       ),
 
@@ -441,8 +300,6 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                               ),
 
 
-
-
                               Container(
                                 width: 600,
                                 height: 70,
@@ -454,7 +311,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                       width: 40,
                                       margin: EdgeInsets.only(left:20),
                                       child: FloatingActionButton(
-
+                                        heroTag: "person5",
                                         backgroundColor: Color(0xffa4002c),
                                         child: Container(
 
@@ -465,56 +322,7 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                     ),
 
                                     Container(
-                                      margin: EdgeInsets.only(left:50),
-                                      child: Text(
-                                        "Léo Nunes",
-                                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),
-                                      ),
-
-                                    ),
-                                    Container(
-                                      width: 40,
-                                      margin: EdgeInsets.only(left:130),
-                                      child: FlatButton(
-
-                                        color: Color.fromRGBO(237, 233, 238, 1),
-                                        child: Container(
-
-                                          child: Icon(Icons.arrow_forward,
-                                            color: Color(0xffa4002c), size: 35,),
-                                        ),
-                                      ),
-                                    ),
-
-                                  ],
-                                ),
-
-                              ),
-
-
-                              Container(
-                                width: 600,
-                                height: 70,
-                                margin: EdgeInsets.only(top:15),
-                                color: Color.fromRGBO(237, 233, 238, 1),
-                                child: Row(
-                                  children: <Widget>[
-                                    Container(
-                                      width: 40,
                                       margin: EdgeInsets.only(left:20),
-                                      child: FloatingActionButton(
-
-                                        backgroundColor: Color(0xffa4002c),
-                                        child: Container(
-
-                                          child: Icon(Icons.person_outline,
-                                            color: Colors.white, size: 35,),
-                                        ),
-                                      ),
-                                    ),
-
-                                    Container(
-                                      margin: EdgeInsets.only(left:50),
                                       child: Text(
                                         "Ketelly Stephani",
                                         style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),
@@ -523,9 +331,8 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                     ),
                                     Container(
                                       width: 40,
-                                      margin: EdgeInsets.only(left:80),
+                                      margin: EdgeInsets.only(left:60),
                                       child: FlatButton(
-
                                         color: Color.fromRGBO(237, 233, 238, 1),
                                         child: Container(
 
@@ -534,34 +341,22 @@ class _WorkerScreenTwoState extends State<WorkerScreenTwo> {
                                         ),
                                       ),
                                     ),
-
                                   ],
                                 ),
-
                               ),
-
                             ],
                           )
                       ),
                     ),
-
-
-
-
-
                   ],
                 ),
               ),
             ),
-
           ),
         ),
-
-
       ],
     );
   }
-
 }
 
 

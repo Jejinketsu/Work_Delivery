@@ -27,6 +27,11 @@ class DatabaseService {
     });
   }
 
+  Future getUserWork() async {
+    var result = await Firestore.instance.collection('users').document(uid);
+    return result.get();
+  }
+
   Stream<QuerySnapshot> get users {
     return userCollection.snapshots();
   }

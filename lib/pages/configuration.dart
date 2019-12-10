@@ -7,7 +7,13 @@ class Configuration extends StatelessWidget {
 
     final AuthService _auth = AuthService();
 
-    List<Row> itens = [item("Deslogar", Icons.exit_to_app)];
+    List<ListTile> itens = [
+      item("Deslogar", () async { 
+        await _auth.singOut();
+        Navigator.pop(context);
+      }),
+    ];
+    
 
     return Scaffold(
       backgroundColor: Colors.white70,
@@ -19,13 +25,7 @@ class Configuration extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (BuildContext context, int index){
             var item = itens[index];
-
-            return ListTile(
-              title: Text("Deslogar"),
-              onTap: () async {
-                await _auth.singOut();
-              },
-            );
+            return item;
           },
           itemCount: itens.length,
         ),
@@ -33,21 +33,13 @@ class Configuration extends StatelessWidget {
     );
   }
 
-  Row item(
+  ListTile item(
     String title,
-    icon,
+    dynamic func,
   ) {
-    return Row(
-      children: <Widget>[
-        
-        Icon(
-          icon,
-          color: Color.fromRGBO(164, 0, 44, 44),
-        ),
-
-        Text(title),
-
-      ],
+    return ListTile(
+      title: Text(title),
+      onTap: func,
     );
   }
 }

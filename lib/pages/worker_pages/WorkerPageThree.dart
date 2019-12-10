@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 
-class WorkerScreenFour extends StatefulWidget{
+class WorkerPageThree extends StatefulWidget{
   @override
-  _WorkerScreenFourState createState() => _WorkerScreenFourState();
+  _WorkerPageThreeState createState() => _WorkerPageThreeState();
 }
 
-class _WorkerScreenFourState extends State<WorkerScreenFour> {
+class _WorkerPageThreeState extends State<WorkerPageThree> {
 
   var _formKey = GlobalKey<FormState>();
 

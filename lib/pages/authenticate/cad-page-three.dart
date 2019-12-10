@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:workdelivery/models/userDatabase.dart';
+import 'package:workdelivery/pages/authenticate/login-page.dart';
 import 'package:workdelivery/services/auth.dart';
 import 'package:workdelivery/shared/loading.dart';
 import 'package:workdelivery/pages/authenticate/work-cad-page-one.dart';
@@ -170,18 +171,21 @@ class _CadPageThreeState extends State<CadPageThree>{
                             heroTag: 'btn_foward_cad3',
                             onPressed: () async {
                               if(_formKey.currentState.validate()){
+                                print(userDatabase.worker);
                                 if(userDatabase.worker == false){
-                                  setState(() => loading = true );
+                                  setState(() => loading = true);
                                   dynamic result = await _auth.registerUserWithEmailAndPassword(userDatabase.email, userDatabase.password, userDatabase);
                                   if(result == null) {
                                     setState(() => loading = false);
                                   }
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => LoginPage()
+                                  ));
                                 } else {
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) => WorkCadPageOne(userDatabase: userDatabase)
                                   ));
                                 }
-                                userDatabase.toStringUDB();
                               };
                             },
                             backgroundColor: Colors.white,

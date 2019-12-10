@@ -17,6 +17,9 @@ class _CadPageOneState extends State<CadPageOne>{
 
   @override
   Widget build(BuildContext context) {
+
+    userDatabase.rank = 0;
+    
     return Scaffold(
       backgroundColor: Color(0xffa4002c),
       body: Padding(

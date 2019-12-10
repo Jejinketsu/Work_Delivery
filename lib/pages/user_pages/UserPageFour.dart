@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:workdelivery/shared/SideMenu.dart';
 
 
-class SearchPageFive extends StatefulWidget{
+class UserPageFour extends StatefulWidget{
   @override
-  _SearchPageFiveState createState() => _SearchPageFiveState();
+  _UserPageFourState createState() => _UserPageFourState();
 }
 
-class _SearchPageFiveState extends State<SearchPageFive> {
+class _UserPageFourState extends State<UserPageFour> {
 
   var _formKey = GlobalKey<FormState>();
 
@@ -25,251 +26,12 @@ class _SearchPageFiveState extends State<SearchPageFive> {
             title: Text("Toinho dos Canos",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
           ),
-          drawer: Drawer(
-            child:Container(
-              color:Color(0xffa4002c) ,
-              child: ListView(
-                children: <Widget>[
-                  DrawerHeader(
-                      decoration: BoxDecoration(
-
-                        color:  Color(0xffa4002c),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-
-                            height: 100,
-                            alignment: Alignment.bottomLeft,
-                            child: Text("Bem Vindo, Whinderson",
-                              style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 27),),
-                          ),
-
-
-                        ],
-                      )
-                  ),
-
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Indique um amigo",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Endereços",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Solicitações",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(left: 50),
-                              width: 20,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Em andamento",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 17,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(left: 50),
-                              width: 20,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Concluídos",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 17,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Minhas Infos",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-                  ListTile(
-
-                    title:Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                              width: 30,
-
-                              child: FloatingActionButton(
-                                backgroundColor: Colors.white,
-
-                              ),
-                            ),
-
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text("Configurações",
-                                style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 22,fontStyle: FontStyle.italic),),
-                            )
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    //onTap: Aqui a gente coloca a função que esse texto vai fazer,
-                  ),
-
-
-
-                ],
-              ),
-            ),
-
-
-          ),
-
+          drawer: SideMenu(),
           backgroundColor: Colors.white,
           body: Padding(
-
-            padding: const EdgeInsets.all(70.0),
-
-
+            padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(
               child: Container(
-
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -279,8 +41,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                       child: Column(
                         children: <Widget>[
                           Container(
-
-
                             child: Column(
                               children: <Widget>[
                                 Container(
@@ -291,12 +51,9 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     "Sua proposta foi enviada para Toinho dos Canos",
-
                                   ),
-
                                 ),
                                 Container(
-
                                   color: Color.fromRGBO(240, 241, 239,1),
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
@@ -305,7 +62,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),
-
                                 Container(
                                   width: 600,
                                   height: 20,
@@ -314,12 +70,9 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   alignment: Alignment.center,
                                   child: Text(
                                     "Toinho dos canos aceitou o job!",
-
                                   ),
-
                                 ),
                                 Container(
-
                                   color: Color.fromRGBO(240, 241, 239,1),
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
@@ -328,7 +81,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),
-
                                 Container(
                                   width: 600,
                                   height: 40,
@@ -337,12 +89,9 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     "Serviço agendado amanha para as 14 horas, você só têm até as 14 horas para cancelar o serviço",
-
                                   ),
-
                                 ),
                                 Container(
-
                                   color: Color.fromRGBO(240, 241, 239,1),
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
@@ -351,9 +100,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),
-
-
-
                                 Container(
                                   margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                                   width: 150,
@@ -366,7 +112,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                     //aqui nos coloca a função do botão
                                     color: Colors.green,
                                     child: Align(
-
                                       child: Text(
                                         "CANCELAR",
                                         textAlign: TextAlign.justify,
@@ -378,14 +123,11 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                       ),
                                     ),
                                     padding: EdgeInsets.all(0),
-
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(35.0),
                                     ),
                                   ),
                                 ),
-
-
                                 Container(
                                   width: 600,
                                   height: 20,
@@ -394,12 +136,9 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   alignment: Alignment.center,
                                   child: Text(
                                     "Toinho dos canos foi realizar o job!",
-
                                   ),
-
                                 ),
                                 Container(
-
                                   color: Color.fromRGBO(240, 241, 239,1),
                                   margin: EdgeInsets.only(top: 0),
                                   alignment: Alignment.topRight,
@@ -408,7 +147,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                                   ),
                                 ),
-
                                 Container(
                                   width: 600,
                                   height: 20,
@@ -417,9 +155,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                   alignment: Alignment.center,
                                   child: Text(
                                     "Como foi o job do Toinho dos Canos? Avalie-o",
-
                                   ),
-
                                 ),
                                 Container(
                                   width: 600,
@@ -435,7 +171,17 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                             width: 35,
                                             margin: EdgeInsets.only(left: 40),
                                             child:  FloatingActionButton(
-
+                                              heroTag: "star1",
+                                              backgroundColor: Colors.yellow,
+                                              focusColor: Colors.yellow,
+                                              child: Icon(Icons.favorite,color: Color(0xffa4002c),size: 25,),
+                                            ),
+                                        ),
+                                        Container(
+                                          width: 35,
+                                          margin: EdgeInsets.only(left: 20),
+                                          child:  FloatingActionButton(
+                                            heroTag: "star2",
                                             backgroundColor: Colors.yellow,
                                             focusColor: Colors.yellow,
                                             child: Icon(Icons.favorite,color: Color(0xffa4002c),size: 25,),
@@ -445,7 +191,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                           width: 35,
                                           margin: EdgeInsets.only(left: 20),
                                           child:  FloatingActionButton(
-
+                                            heroTag: "star3",
                                             backgroundColor: Colors.yellow,
                                             focusColor: Colors.yellow,
                                             child: Icon(Icons.favorite,color: Color(0xffa4002c),size: 25,),
@@ -455,7 +201,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                           width: 35,
                                           margin: EdgeInsets.only(left: 20),
                                           child:  FloatingActionButton(
-
+                                            heroTag: "star4",
                                             backgroundColor: Colors.yellow,
                                             focusColor: Colors.yellow,
                                             child: Icon(Icons.favorite,color: Color(0xffa4002c),size: 25,),
@@ -465,17 +211,7 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                           width: 35,
                                           margin: EdgeInsets.only(left: 20),
                                           child:  FloatingActionButton(
-
-                                            backgroundColor: Colors.yellow,
-                                            focusColor: Colors.yellow,
-                                            child: Icon(Icons.favorite,color: Color(0xffa4002c),size: 25,),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 35,
-                                          margin: EdgeInsets.only(left: 20),
-                                          child:  FloatingActionButton(
-
+                                            heroTag: "star5",
                                             backgroundColor: Colors.yellow,
                                             focusColor: Colors.yellow,
                                             child: Icon(Icons.favorite,color: Color(0xffa4002c),size: 25,),
@@ -545,10 +281,6 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                               ),
                                             ),
                                           ),
-
-
-
-
                                         ],
                                       )
                                     ],
@@ -556,31 +288,19 @@ class _SearchPageFiveState extends State<SearchPageFive> {
                                 )
                               ],
                             ),
-
                           ),
-
-
                         ],
-
                       ),
                     ),
-
-
-
                   ],
                 ),
               ),
             ),
-
           ),
         ),
-
-
-
       ],
     );
   }
-
 }
 
 
